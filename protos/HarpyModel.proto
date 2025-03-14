@@ -1,0 +1,490 @@
+#VRML_SIM R2023b utf8
+# license: Apache License 2.0
+# license url: http://www.apache.org/licenses/LICENSE-2.0
+# This is a proto file for Webots for the HarpyModel
+# Extracted from: C:\Users\hanya\Dropbox\Life\5 _Learner\SSL\Chaos\2023\11 November\2023-11-30 - Harpy RL\Resources\Shreyansh\HarpyURDF\HarpyURDF\02\harpy.urdf
+
+PROTO HarpyModel [
+  field  SFVec3f     translation     0 0 0
+  field  SFRotation  rotation        0 0 1 0
+  field  SFString    name            "HarpyModel"  # Is `Robot.name`.
+  field  SFString    controller      "void"        # Is `Robot.controller`.
+  field  MFString    controllerArgs  []            # Is `Robot.controllerArgs`.
+  field  SFString    customData      ""            # Is `Robot.customData`.
+  field  SFBool      supervisor      FALSE         # Is `Robot.supervisor`.
+  field  SFBool      synchronization TRUE          # Is `Robot.synchronization`.
+  field  SFBool      selfCollision   FALSE         # Is `Robot.selfCollision`.
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    controller IS controller
+    controllerArgs IS controllerArgs
+    customData IS customData
+    supervisor IS supervisor
+    synchronization IS synchronization
+    selfCollision IS selfCollision
+    children [
+      Solid {
+        rotation 0.577044 -0.577503 0.577503 2.093475
+        children [
+          DEF Torso_visual CadShape {
+            url "../protos/Mesh/Torso.obj"
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0.000000 0.000000 -1.000000
+              anchor 0.000000 0.100000 0.031400
+            }
+            device [
+              RotationalMotor {
+                name "FrontalRightJoint"
+                maxTorque 10000
+              }
+              PositionSensor {
+                name "FrontalRightJoint_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.000000 0.100000 0.031400
+              children [
+                DEF HipCouplingRight_visual CadShape {
+                  url "../protos/Mesh/HipCouplingRight.obj"
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis -0.000796 1.000000 -0.000001
+                    anchor 0.000000 0.000000 0.064050
+                  }
+                  device [
+                    RotationalMotor {
+                      name "SagittalRightJoint"
+                      maxTorque 10000
+                    }
+                    PositionSensor {
+                      name "SagittalRightJoint_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0.000000 0.000000 0.064050
+                    rotation 0.577503 0.577503 -0.577044 2.093475
+                    children [
+                      DEF HipRight_visual CadShape {
+                        url "../protos/Mesh/HipRight.obj"
+                      }
+                      HingeJoint {
+                        jointParameters HingeJointParameters {
+                          axis 0.001593 -0.000001 -0.999999
+                          anchor -0.085310 -0.127610 0.059410
+                        }
+                        device [
+                          RotationalMotor {
+                            name "KneeRightJoint"
+                            maxTorque 10000
+                          }
+                          PositionSensor {
+                            name "KneeRightJoint_sensor"
+                          }
+                        ]
+                        endPoint Solid {
+                          translation -0.085310 -0.127610 0.059410
+                          rotation 0.707388 0.706825 0.000563 3.140466
+                          children [
+                            DEF KneeRight_visual CadShape {
+                              url "../protos/Mesh/KneeRight.obj"
+                            }
+                            HingeJoint {
+                              jointParameters HingeJointParameters {
+                                axis 0.000000 0.000000 1.000000
+                                anchor -0.260670 0.183870 0.007870
+                              }
+                              device [
+                                RotationalMotor {
+                                  name "AnkleRightJoint"
+                                  maxTorque 10000
+                                }
+                                PositionSensor {
+                                  name "AnkleRightJoint_sensor"
+                                }
+                              ]
+                              endPoint Solid {
+                                translation -0.260670 0.183870 0.007870
+                                children [
+                                  DEF AnkleRight_visual CadShape {
+                                    url "../protos/Mesh/AnkleRight.obj"
+                                  }
+                                  HingeJoint {
+                                    jointParameters HingeJointParameters {
+                                      axis 0.000000 0.000000 1.000000
+                                      anchor -0.112580 -0.065000 0.000000
+                                    }
+                                    device [
+                                      RotationalMotor {
+                                        name "FootRightJoint"
+                                        maxTorque 10000
+                                      }
+                                      PositionSensor {
+                                        name "FootRightJoint_sensor"
+                                      }
+                                    ]
+                                    endPoint Solid {
+                                      translation -0.112580 -0.065000 0.000000
+                                      rotation 0.000000 0.000000 -1.000000 1.570000
+                                      children [
+                                        DEF Foot_visual CadShape {
+                                          url "../protos/Mesh/Foot.obj"
+                                        }
+                                      ]
+                                      name "FootRight"
+                                      boundingObject DEF Foot Mesh {
+                                        url "../protos/Mesh/Foot.obj"
+                                      }
+                                      physics Physics {
+                                        density -1
+                                        mass 0.023876
+                                        centerOfMass [ 0.000000 -0.014290 0.000000 ]
+                                        inertiaMatrix [
+                                          1.580000e-06 1.558000e-05 1.677000e-05
+                                          0.000000e+00 0.000000e+00 0.000000e+00
+                                        ]
+                                      }
+                                    }
+                                  }
+                                ]
+                                name "AnkleRight"
+                                boundingObject DEF AnkleRight Mesh {
+                                  url "../protos/Mesh/AnkleRight.obj"
+                                }
+                                physics Physics {
+                                  density -1
+                                  mass 0.078578
+                                  centerOfMass [ -0.021931 -0.012657 -0.000026 ]
+                                  inertiaMatrix [
+                                    3.389590e-04 8.641037e-06 3.355700e-04
+                                    2.391344e-06 -1.267380e-07 1.837031e-08
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                          name "KneeRight"
+                          boundingObject DEF KneeRight Mesh {
+                            url "../protos/Mesh/KneeRight.obj"
+                          }
+                          physics Physics {
+                            density -1
+                            mass 0.130469
+                            centerOfMass [ -0.097517 0.068790 0.006394 ]
+                            inertiaMatrix [
+                              1.310080e-03 4.393896e-04 1.737890e-03
+                              7.250662e-04 1.411365e-05 -2.492611e-05
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                    name "SagittalHipRight"
+                    boundingObject DEF HipRight Mesh {
+                      url "../protos/Mesh/HipRight.obj"
+                    }
+                    physics Physics {
+                      density -1
+                      mass 0.626042
+                      centerOfMass [ -0.044219 -0.066151 0.023437 ]
+                      inertiaMatrix [
+                        6.231098e-04 3.637960e-03 3.594410e-03
+                        -7.062574e-04 5.302788e-06 -7.554948e-06
+                      ]
+                    }
+                  }
+                }
+              ]
+              name "FrontalHipRight"
+              boundingObject DEF HipCouplingRight Mesh {
+                url "../protos/Mesh/HipCouplingRight.obj"
+              }
+              physics Physics {
+                density -1
+                mass 0.164230
+                centerOfMass [ 0.000000 -0.030480 0.021670 ]
+                inertiaMatrix [
+                  2.216588e-04 1.436039e-04 1.624466e-04
+                  1.798964e-10 -1.301433e-10 7.604760e-05
+                ]
+              }
+            }
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0.000000 0.000000 1.000000
+              anchor 0.000000 -0.100000 0.031400
+            }
+            device [
+              RotationalMotor {
+                name "FrontalLeftJoint"
+                maxTorque 10000
+              }
+              PositionSensor {
+                name "FrontalLeftJoint_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.000000 -0.100000 0.031400
+              children [
+                DEF HipCouplingLeft_visual CadShape {
+                  url "../protos/Mesh/HipCouplingLeft.obj"
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0.000796 1.000000 -0.000001
+                    anchor 0.000000 0.000000 0.064050
+                  }
+                  device [
+                    RotationalMotor {
+                      name "SagittalLeftJoint"
+                      maxTorque 10000
+                    }
+                    PositionSensor {
+                      name "SagittalLeftJoint_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0.000000 0.000000 0.064050
+                    rotation 0.577503 -0.577503 0.577044 2.093475
+                    children [
+                      DEF HipLeft_visual CadShape {
+                        url "../protos/Mesh/HipLeft.obj"
+                      }
+                      HingeJoint {
+                        jointParameters HingeJointParameters {
+                          axis -0.000003 0.001593 -0.999999
+                          anchor 0.085310 0.127610 -0.059410
+                        }
+                        device [
+                          RotationalMotor {
+                            name "KneeLeftJoint"
+                            maxTorque 10000
+                          }
+                          PositionSensor {
+                            name "KneeLeftJoint_sensor"
+                          }
+                        ]
+                        endPoint Solid {
+                          translation 0.085310 0.127610 -0.059410
+                          rotation 0.000796 -0.999999 -0.000796 3.141591
+                          children [
+                            DEF KneeLeft_visual CadShape {
+                              url "../protos/Mesh/KneeLeft.obj"
+                            }
+                            HingeJoint {
+                              jointParameters HingeJointParameters {
+                                axis 0.000003 -0.001593 0.999999
+                                anchor 0.183870 0.260670 -0.007870
+                              }
+                              device [
+                                RotationalMotor {
+                                  name "AnkleLeftJoint"
+                                  maxTorque 10000
+                                }
+                                PositionSensor {
+                                  name "AnkleLeftJoint_sensor"
+                                }
+                              ]
+                              endPoint Solid {
+                                translation 0.183870 0.260670 -0.007870
+                                rotation 0.000796 -0.999999 -0.000796 3.141591
+                                children [
+                                  DEF AnkleLeft_visual CadShape {
+                                    url "../protos/Mesh/AnkleLeft.obj"
+                                  }
+                                  HingeJoint {
+                                    jointParameters HingeJointParameters {
+                                      axis -0.000000 0.000000 -1.000000
+                                      anchor 0.065000 0.112580 0.000000
+                                    }
+                                    device [
+                                      RotationalMotor {
+                                        name "FootLeftJoint"
+                                        maxTorque 10000
+                                      }
+                                      PositionSensor {
+                                        name "FootLeftJoint_sensor"
+                                      }
+                                    ]
+                                    endPoint Solid {
+                                      translation 0.065000 0.112580 0.000000
+                                      rotation 0.000000 0.000000 1.000000 3.140000
+                                      children [
+                                        USE Foot_visual
+                                      ]
+                                      name "FootLeft"
+                                      boundingObject USE Foot
+                                      physics Physics {
+                                        density -1
+                                        mass 0.023876
+                                        centerOfMass [ 0.000000 -0.014290 0.000000 ]
+                                        inertiaMatrix [
+                                          1.580000e-06 1.558000e-05 1.677000e-05
+                                          0.000000e+00 0.000000e+00 0.000000e+00
+                                        ]
+                                      }
+                                    }
+                                  }
+                                ]
+                                name "AnkleLeft"
+                                boundingObject DEF AnkleLeft Mesh {
+                                  url "../protos/Mesh/AnkleLeft.obj"
+                                }
+                                physics Physics {
+                                  density -1
+                                  mass 0.078578
+                                  centerOfMass [ 0.012657 0.021931 0.000026 ]
+                                  inertiaMatrix [
+                                    8.623767e-06 3.389762e-04 3.355700e-04
+                                    -1.168247e-07 -1.933205e-08 1.265949e-07
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                          name "KneeLeft"
+                          boundingObject DEF KneeLeft Mesh {
+                            url "../protos/Mesh/KneeLeft.obj"
+                          }
+                          physics Physics {
+                            density -1
+                            mass 0.130469
+                            centerOfMass [ 0.068790 0.097517 -0.006394 ]
+                            inertiaMatrix [
+                              4.699148e-04 1.279555e-03 1.737890e-03
+                              -7.425410e-04 -2.462722e-05 -1.462893e-05
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                    name "SagittalHipLeft"
+                    boundingObject DEF HipLeft Mesh {
+                      url "../protos/Mesh/HipLeft.obj"
+                    }
+                    physics Physics {
+                      density -1
+                      mass 0.626042
+                      centerOfMass [ 0.045865 0.065020 -0.023437 ]
+                      inertiaMatrix [
+                        6.584848e-04 3.602587e-03 3.594410e-03
+                        -7.772969e-04 5.086887e-06 -7.696322e-06
+                      ]
+                    }
+                  }
+                }
+              ]
+              name "FrontalHipLeft"
+              boundingObject DEF HipCouplingLeft Mesh {
+                url "../protos/Mesh/HipCouplingLeft.obj"
+              }
+              physics Physics {
+                density -1
+                mass 0.164230
+                centerOfMass [ 0.000000 0.030480 0.021670 ]
+                inertiaMatrix [
+                  2.216588e-04 1.436039e-04 1.624466e-04
+                  -1.801035e-10 1.298566e-10 -7.604760e-05
+                ]
+              }
+            }
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0.000000 1.000000 0.000000
+              anchor 0.101000 0.250000 0.000000
+            }
+            device [
+              RotationalMotor {
+                name "ThrusterRightJoint"
+                maxTorque 10000
+              }
+              PositionSensor {
+                name "ThrusterRightJoint_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.101000 0.250000 0.000000
+              rotation 0.000000 1.000000 0.000000 1.570000
+              children [
+                DEF ThrusterRight_visual CadShape {
+                  url "../protos/Mesh/ThrusterRight.obj"
+                }
+              ]
+              name "ThrusterRight"
+              boundingObject DEF ThrusterRight Mesh {
+                url "../protos/Mesh/ThrusterRight.obj"
+              }
+              physics Physics {
+                density -1
+                mass 0.120000
+                centerOfMass [ 0.000000 0.000000 -0.009649 ]
+                inertiaMatrix [
+                  1.104400e-04 1.104500e-04 9.201000e-05
+                  0.000000e+00 0.000000e+00 0.000000e+00
+                ]
+              }
+            }
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0.000000 1.000000 0.000000
+              anchor 0.101000 -0.250000 0.000000
+            }
+            device [
+              RotationalMotor {
+                name "ThrusterLeftJoint"
+                maxTorque 10000
+              }
+              PositionSensor {
+                name "ThrusterLeftJoint_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.101000 -0.250000 0.000000
+              rotation 0.000000 1.000000 0.000000 1.570000
+              children [
+                DEF ThrusterLeft_visual CadShape {
+                  url "../protos/Mesh/ThrusterLeft.obj"
+                }
+              ]
+              name "ThrusterLeft"
+              boundingObject DEF ThrusterLeft Mesh {
+                url "../protos/Mesh/ThrusterLeft.obj"
+              }
+              physics Physics {
+                density -1
+                mass 0.120000
+                centerOfMass [ 0.000000 0.000000 -0.009649 ]
+                inertiaMatrix [
+                  1.104400e-04 1.104500e-04 9.201000e-05
+                  0.000000e+00 0.000000e+00 0.000000e+00
+                ]
+              }
+            }
+          }
+        ]
+        name "Torso"
+        boundingObject DEF Torso Mesh {
+          url "../protos/Mesh/Torso.obj"
+        }
+        physics Physics {
+          density -1
+          mass 3.267700
+          centerOfMass [ 0.080819 0.000399 -0.017021 ]
+          inertiaMatrix [
+            5.031174e-02 2.068285e-02 5.619613e-02
+            4.851300e-04 -1.617000e-05 -6.038000e-05
+          ]
+        }
+      }
+    ]
+    name IS name
+  }
+}

@@ -1,0 +1,78 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "../protos/HarpyModel.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/samples/contests/tower_of_hanoi/protos/YoubotFlag.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/apartment_structure/protos/Wall.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.2059152476329183 -0.9181462005439043 -0.3385357665285404 5.443257360057066
+  position -5.749841934596545 -3.657794783892887 5.010438092534923
+  followType "None"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 7 7
+  floorAppearance Parquetry {
+    type "chequered"
+    colorOverride 0 0.4 0.4
+  }
+}
+YoubotFlag {
+  translation 1.5 2.5 0.02
+  name "Goal"
+}
+Wall {
+  size 0.1 2 1.5
+}
+Wall {
+  translation 3 2 0
+  name "wall(1)"
+  size 0.1 2 1.5
+}
+Wall {
+  translation 3 -1.5 0
+  name "wall(2)"
+  size 0.1 2 1.5
+}
+Wall {
+  translation 0.1 -3.3 0
+  rotation 0 0 1 1.5707996938995747
+  name "wall(3)"
+  size 0.1 6 1.5
+}
+HarpyModel {
+  hidden translation_1 -2.6960819354826526e-08 3.431960231559117e-07 -8.712956858381027e-05
+  hidden rotation_1 0.5770450462890532 -0.5775040268926576 0.5775016133969055 2.093477391637212
+  hidden position_1_0 1.2805592330898055e-06
+  hidden position_1_1 -1.2901716299751342e-06
+  hidden position_1_2 5.550857807857202e-14
+  hidden position_1_3 5.5508104923961333e-14
+  hidden rotation_2 0 0 -1 1.280459824737382e-06
+  hidden position_2_0 4.3086691235295245e-07
+  hidden rotation_3 0.5775030627978086 0.5775033116249997 -0.5770443115752105 2.093475248629155
+  hidden position_3_0 2.323369888118329e-07
+  hidden rotation_4 0.7073881952440757 0.7068250308670133 0.0005630001554850606 3.1404660001308433
+  hidden position_4_0 -2.467909876457952e-08
+  hidden rotation_5 0 0 -1 2.9802322387695313e-08
+  hidden position_5_0 -3.812618315968531e-09
+  hidden rotation_6 0 0 -1 1.5700000038126183
+  hidden rotation_7 0 0 -0.9999999999999999 1.290134240502938e-06
+  hidden position_7_0 -4.4155966349990194e-07
+  hidden rotation_8 0.5775030586805279 -0.5775033136828206 0.5770443136363069 2.0934752547993427
+  hidden position_8_0 2.477877771554877e-07
+  hidden rotation_9 0.0007958763978314426 -0.9999993664819471 -0.0007960002915292746 3.1415909998025127
+  hidden position_9_0 -2.506056564668648e-08
+  hidden rotation_10 0.0007959877613665523 -0.9999993663933091 -0.0007960002916300843 3.1415909999800267
+  hidden position_10_0 -1.0660805571660603e-11
+  translation -2 -2.5 0.526
+  rotation 0 0 1 1.5707996938995747
+}
