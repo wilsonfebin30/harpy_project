@@ -1,0 +1,43 @@
+# PPO Algorithm Settings
+ppo:
+  clip_param: 0.2
+  entropy_coef: 0.01
+  value_loss_coef: 0.5
+  max_grad_norm: 0.5
+  num_mini_batches: 2  # Reduced from 4 to decrease computational complexity
+  num_epochs: 3  # Reduced from 5 to decrease computational complexity
+  gamma: 0.99
+  gae_lambda: 0.95
+  learning_rate: 1.0e-4  # Slightly reduced learning rate
+
+# Environment Settings
+env:
+  num_envs: 1  # Reduced to 1 for initial testing and debugging
+  episode_length: 500
+  env_spacing: 2.0
+
+# Training Settings
+training:
+  iterations: 10  # Reduced for initial testing
+  save_interval: 5  # More frequent checkpoints
+  device: 'cuda:0'  # Explicitly specify device
+  curriculum:
+    start_velocity: 0.1  # More conservative start
+    end_velocity: 1.0  # Slightly reduced max velocity
+    curriculum_length: 0.5  # Reduced curriculum progression length
+
+# Rewards Settings
+rewards:
+  forward_weight: 1.0
+  upright_weight: 2.0
+  height_weight: 1.0
+  energy_penalty: 0.001
+  y_vel_penalty: 0.1
+  ang_vel_penalty: 0.05
+
+# Additional Physics and Simulation Settings
+physics:
+  gpu_found_lost_pairs_capacity: 16777216
+  gpu_total_aggregate_pairs_capacity: 16777216
+  gpu_max_rigid_contact_count: 16777216
+  gpu_max_rigid_patch_count: 4194304

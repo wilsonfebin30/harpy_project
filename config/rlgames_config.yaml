@@ -1,0 +1,117 @@
+# Environment configuration for Harpy
+env:
+  num_envs: 16
+  episode_length: 500
+  env_spacing: 2.0
+  
+# Reward configuration
+rewards:
+  forward_weight: 1.0
+  upright_weight: 2.0
+  height_weight: 1.0
+  energy_penalty: 0.001
+  y_vel_penalty: 0.1
+  ang_vel_penalty: 0.05
+
+# Training configuration
+training:
+  iterations: 1000
+  save_interval: 100
+  curriculum:
+    start_velocity: 0.3
+    end_velocity: 1.5
+    curriculum_length: 0.7
+
+# RL-Games specific configuration
+params:
+  seed: 42
+  
+  algo:
+    name: a2c_continuous
+    
+  model:
+    name: continuous_a2c_logstd
+    
+  network:
+    name: actor_critic
+    separate: False
+    
+    space:
+      continuous:
+        mu_activation: tanh
+        sigma_activation: none
+        mu_init:
+          name: default
+        sigma_init:
+          name: const_initializer
+          val: 0  # Will be overridden by initial_std below
+
+    mlp:
+      units: [512, 256, 128]  # Same as Cassie flat model
+      activation: elu
+      d2rl: False
+      initializer:
+        name: default
+        
+  config:
+    name: "Harpy"
+    env_name: "rlgpu"
+    multi_gpu: False
+    ppo: True
+    mixed_precision: True  # Enable mixed precision for faster training
+    normalize_input: True
+    normalize_value: True
+    value_bootstrap: True
+    num_actors: 24  # Number of environments
+    reward_shaper:
+      scale_value: 1.0  # Scale the rewards
+    gamma: 0.99  # Discount factor
+    tau: 0.95  # GAE parameter
+    learning_rate: 1.0e-3  # Learning rate
+    lr_schedule: adaptive  # Learning rate schedule
+    kl_threshold: 0.01  # KL threshold for adaptive lr
+    score_to_win: 20000
+    max_epochs: 1000  # Max iterations
+    save_best_after: 50
+    save_frequency: 100  # Save checkpoint frequency
+    grad_norm: 1.0  # Gradient clipping
+    entropy_coef: 0.01  # Entropy coefficient
+    truncate_grads: True
+    e_clip: 0.2  # PPO clipping parameter
+    horizon_length: 24  # Rollout length
+    minibatch_size: 8192  # Batch size for training
+    mini_epochs: 5  # PPO epochs per iteration
+    critic_coef: 1.0  # Value loss coefficient
+    clip_value: True  # Clip value loss
+    normalize_advantage: True
+    bounds_loss_coef: 0.0001
+    
+    # Device configurations
+    device: cuda:0
+    device_name: cuda
+    
+    # Add these parameters for more efficient training
+    async_training: False
+    use_diagnostics: True
+    use_smooth_clamp: True
+    vec_env: True
+    
+  env:
+    # Environment parameters
+    name: "rlgpu"
+    clip_observations: 10.0
+    clip_actions: 1.0
+    
+  # New PPO replay buffer parameters
+  replay_buffer:
+    use_replay_buffer: False
+    replay_ratio: 0
+    batch_size: 8192
+    max_buffer_length: 1024
+  
+  player:
+    games_num: 1000000
+    deterministic: True  # Use deterministic actions for testing
+    
+  initial_std: 0.4  # Initial standard deviation for exploration
+  adapt_fp16_precision: True  # Enable half-precision where supported

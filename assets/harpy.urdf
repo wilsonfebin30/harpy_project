@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="harpy">
+  <joint name="AnkleLeftJoint" type="continuous">
+    <origin xyz="0.18387 0.26067 -0.00787" rpy="0.0015924 -0.0000001 0.0015926"/>
+    <parent link="KneeLeft"/>
+    <child link="AnkleLeft"/>
+    <axis xyz="0. 0. 1."/>
+  </joint>
+  <joint name="AnkleRightJoint" type="continuous">
+    <origin xyz="-0.26067 0.18387 0.00787" rpy="-0. -0.0000002 -0. "/>
+    <parent link="KneeRight"/>
+    <child link="AnkleRight"/>
+    <axis xyz="0. 0. 1."/>
+  </joint>
+  <joint name="Basejoint" type="fixed">
+    <origin xyz="0. 0. 0." rpy="0.0000136 -1.57 1.5699865"/>
+    <parent link="harpy_model"/>
+    <child link="Torso"/>
+  </joint>
+  <joint name="FSALeftJoint" type="fixed">
+    <origin xyz="-0.0300001 0.0519599 0. " rpy="3.1415927 -0.0000001 -3.1415925"/>
+    <parent link="AnkleLeft"/>
+    <child link="FSALeft"/>
+  </joint>
+  <joint name="FSARightJoint" type="fixed">
+    <origin xyz="0.05196 0.03 0. " rpy="0. 0. 0."/>
+    <parent link="AnkleRight"/>
+    <child link="FSARight"/>
+  </joint>
+  <joint name="FootLeftJoint" type="continuous">
+    <origin xyz="-0.0650001 0.1125799 0. " rpy="-0. -0.0000001 -3.14 "/>
+    <parent link="AnkleLeft"/>
+    <child link="FootLeft"/>
+    <axis xyz="0. 0. 1."/>
+  </joint>
+  <joint name="FootRightJoint" type="continuous">
+    <origin xyz="-0.11258 -0.065 0. " rpy="0. 0. -1.57"/>
+    <parent link="AnkleRight"/>
+    <child link="FootRight"/>
+    <axis xyz="0. 0. 1."/>
+  </joint>
+  <joint name="FrontalLeftJoint" type="continuous">
+    <origin xyz="-0. -0.1 0.0314" rpy="0. -0. 0."/>
+    <parent link="Torso"/>
+    <child link="FrontalHipLeft"/>
+    <axis xyz="0. 0. 1."/>
+  </joint>
+  <joint name="FrontalRightJoint" type="continuous">
+    <origin xyz="-0. 0.1 0.0314" rpy="3.1415927 0. -3.1415927"/>
+    <parent link="Torso"/>
+    <child link="FrontalHipRight"/>
+    <axis xyz="0. 0. 1."/>
+  </joint>
+  <joint name="KneeLeftJoint" type="continuous">
+    <origin xyz="-0.08531 0.12761 0.05941" rpy="-0.0015925 0.0000001 -0.0015925"/>
+    <parent link="SagittalHipLeft"/>
+    <child link="KneeLeft"/>
+    <axis xyz="0. 0. 1."/>
+  </joint>
+  <joint name="KneeRightJoint" type="continuous">
+    <origin xyz="0.08531 -0.12761 -0.05941" rpy="-0.0015926 0. 1.5715926"/>
+    <parent link="SagittalHipRight"/>
+    <child link="KneeRight"/>
+    <axis xyz="0. 0. 1."/>
+  </joint>
+  <joint name="SALeftJoint" type="fixed">
+    <origin xyz="-0.05195 0.0764 -0.02801" rpy="3.1415925 -0.0000001 -3.1415925"/>
+    <parent link="SagittalHipLeft"/>
+    <child link="SALeft"/>
+  </joint>
+  <joint name="SARightJoint" type="fixed">
+    <origin xyz="-0.05195 0.077733 -0.02801 " rpy="-3.1415927 0. 3.1415927"/>
+    <parent link="SagittalHipRight"/>
+    <child link="SARight"/>
+  </joint>
+  <joint name="SagittalLeftJoint" type="continuous">
+    <origin xyz="0. 0. 0.06405" rpy="1.5716062 1.57 -3.1415792"/>
+    <parent link="FrontalHipLeft"/>
+    <child link="SagittalHipLeft"/>
+    <axis xyz="0. 0. 1."/>
+  </joint>
+  <joint name="SagittalRightJoint" type="continuous">
+    <origin xyz="-0. -0. -0.06405" rpy="-1.5699865 1.57 0.0000136"/>
+    <parent link="FrontalHipRight"/>
+    <child link="SagittalHipRight"/>
+    <axis xyz="0. 0. 1."/>
+  </joint>
+  <joint name="ThrusterLeftJoint" type="continuous">
+    <origin xyz="0.101 -0.25 -0. " rpy="0.0000295 1.57 0.0000295"/>
+    <parent link="Torso"/>
+    <child link="ThrusterLeft"/>
+    <axis xyz="0. 1. 0."/>
+  </joint>
+  <joint name="ThrusterRightJoint" type="continuous">
+    <origin xyz="0.101 0.25 0. " rpy="0.0000295 1.57 0.0000295"/>
+    <parent link="Torso"/>
+    <child link="ThrusterRight"/>
+    <axis xyz="0. 1. 0."/>
+  </joint>
+  <link name="AnkleLeft">
+    <inertial>
+      <origin xyz="0.0126573 0.0219308 0.0000259" rpy="0. 0. 0."/>
+      <mass value="0.0785781"/>
+      <inertia ixx="0.0002564" ixy="0.000143" ixz="-0.0000001" iyy="0.0000912" iyz="-0.0000001" izz="0.0003356"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.0000001 -0. 0. " rpy="3.1415927 -0.0000001 -3.1415925"/>
+      <geometry>
+        <mesh filename="meshes/AnkleLeft_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0000001 -0. 0. " rpy="3.1415927 -0.0000001 -3.1415925"/>
+      <geometry>
+        <mesh filename="meshes/AnkleLeft_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="AnkleRight">
+    <inertial>
+      <origin xyz="-0.0219308 -0.0126573 -0.0000259" rpy="0. 0. 0."/>
+      <mass value="0.0785781"/>
+      <inertia ixx="0.0000912" ixy="0.000143" ixz="-0.0000001" iyy="0.0002564" iyz="-0.0000001" izz="0.0003356"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. -0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="meshes/AnkleRight_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. -0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="meshes/AnkleRight_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FSALeft">
+    <inertial>
+      <origin xyz="-inf -inf -inf" rpy="0. 0. 0."/>
+      <mass value="0.000001"/>
+      <inertia ixx="0.00001" ixy="0." ixz="0." iyy="0.00001" iyz="0." izz="0.00001"/>
+    </inertial>
+  </link>
+  <link name="FSARight">
+    <inertial>
+      <origin xyz="-inf -inf -inf" rpy="0. 0. 0."/>
+      <mass value="0.000001"/>
+      <inertia ixx="0.00001" ixy="0." ixz="0." iyy="0.00001" iyz="0." izz="0.00001"/>
+    </inertial>
+  </link>
+  <link name="FootLeft">
+    <inertial>
+      <origin xyz="0. -0.0142896 0. " rpy="0. 0. 0."/>
+      <mass value="0.0238764"/>
+      <inertia ixx="0.0000016" ixy="0." ixz="0." iyy="0.0000156" iyz="0." izz="0.0000168"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. -0. -0." rpy="-3.1415927 -0.0000001 3.1415925"/>
+      <geometry>
+        <mesh filename="meshes/FootLeft_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. -0. -0." rpy="-3.1415927 -0.0000001 3.1415925"/>
+      <geometry>
+        <mesh filename="meshes/FootLeft_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FootRight">
+    <inertial>
+      <origin xyz="0. -0.0142896 0. " rpy="0. 0. 0."/>
+      <mass value="0.0238764"/>
+      <inertia ixx="0.0000016" ixy="0." ixz="0." iyy="0.0000156" iyz="0." izz="0.0000168"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0. -0. 0." rpy="-0.0000001 -0. -0.0000001"/>
+      <geometry>
+        <mesh filename="meshes/FootRight_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0. -0. 0." rpy="-0.0000001 -0. -0.0000001"/>
+      <geometry>
+        <mesh filename="meshes/FootRight_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FrontalHipLeft">
+    <inertial>
+      <origin xyz="0. 0.03048 0.02167" rpy="0. 0. 0."/>
+      <mass value="0.16423"/>
+      <inertia ixx="0.0002217" ixy="-0." ixz="-0." iyy="0.0001626" iyz="0.000076" izz="0.0001435"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="meshes/FrontalHipLeft_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="meshes/FrontalHipLeft_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FrontalHipRight">
+    <inertial>
+      <origin xyz="0. -0.03048 0.02167" rpy="0. 0. 0."/>
+      <mass value="0.16423"/>
+      <inertia ixx="0.0002217" ixy="-0." ixz="-0." iyy="0.0001626" iyz="-0.000076" izz="0.0001435"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0. -0. -0." rpy="3.1415927 0. 3.1415927"/>
+      <geometry>
+        <mesh filename="meshes/FrontalHipRight_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0. -0. -0." rpy="3.1415927 0. 3.1415927"/>
+      <geometry>
+        <mesh filename="meshes/FrontalHipRight_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="KneeLeft">
+    <inertial>
+      <origin xyz="0.06879 0.097517 -0.006394" rpy="0. 0. 0."/>
+      <mass value="0.1304694"/>
+      <inertia ixx="0.000791" ixy="-0.0008416" ixz="-0.0000212" iyy="0.0009584" iyz="-0.0000192" izz="0.0017379"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0. -0. -0." rpy="-0.0000001 -0.0000001 0. "/>
+      <geometry>
+        <mesh filename="meshes/KneeLeft_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0. -0. -0." rpy="-0.0000001 -0.0000001 0. "/>
+      <geometry>
+        <mesh filename="meshes/KneeLeft_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="KneeRight">
+    <inertial>
+      <origin xyz="-0.097517 0.06879 0.006394" rpy="0. 0. 0."/>
+      <mass value="0.1304694"/>
+      <inertia ixx="0.000791" ixy="-0.0008416" ixz="-0.0000212" iyy="0.0009584" iyz="-0.0000192" izz="0.0017379"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="-0. -0.0000002 -0. "/>
+      <geometry>
+        <mesh filename="meshes/KneeRight_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="-0. -0.0000002 -0. "/>
+      <geometry>
+        <mesh filename="meshes/KneeRight_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="SALeft">
+    <inertial>
+      <origin xyz="-inf -inf -inf" rpy="0. 0. 0."/>
+      <mass value="0.000001"/>
+      <inertia ixx="0.00001" ixy="0." ixz="0." iyy="0.00001" iyz="0." izz="0.00001"/>
+    </inertial>
+  </link>
+  <link name="SARight">
+    <inertial>
+      <origin xyz="-inf -inf -inf" rpy="0. 0. 0."/>
+      <mass value="0.000001"/>
+      <inertia ixx="0.00001" ixy="0." ixz="0." iyy="0.00001" iyz="0." izz="0.00001"/>
+    </inertial>
+  </link>
+  <link name="SagittalHipLeft">
+    <inertial>
+      <origin xyz="0.0458652 0.0650204 -0.0234373" rpy="0. 0. 0."/>
+      <mass value="0.6260416"/>
+      <inertia ixx="0.002691" ixy="0.0015675" ixz="-0.0000053" iyy="0.0015701" iyz="-0.0000075" izz="0.0035944"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="3.1415925 -0.0000001 -3.1415925"/>
+      <geometry>
+        <mesh filename="meshes/SagittalHipLeft_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="3.1415925 -0.0000001 -3.1415925"/>
+      <geometry>
+        <mesh filename="meshes/SagittalHipLeft_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="SagittalHipRight">
+    <inertial>
+      <origin xyz="-0.044219 -0.066151 0.0234373" rpy="0. 0. 0."/>
+      <mass value="0.6260416"/>
+      <inertia ixx="0.002765" ixy="0.001539" ixz="-0.0000051" iyy="0.001496" iyz="-0.0000077" izz="0.0035944"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0. -0. 0." rpy="-3.1415927 0. 3.1415927"/>
+      <geometry>
+        <mesh filename="meshes/SagittalHipRight_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0. -0. 0." rpy="-3.1415927 0. 3.1415927"/>
+      <geometry>
+        <mesh filename="meshes/SagittalHipRight_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="ThrusterLeft">
+    <inertial>
+      <origin xyz="0. 0. -0.0096491" rpy="0. 0. 0."/>
+      <mass value="0.12"/>
+      <inertia ixx="0.0001104" ixy="0." ixz="0." iyy="0.0001104" iyz="0." izz="0.000092"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. -0." rpy="0. 0. 0.0000002"/>
+      <geometry>
+        <mesh filename="meshes/ThrusterLeft_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. -0." rpy="0. 0. 0.0000002"/>
+      <geometry>
+        <mesh filename="meshes/ThrusterLeft_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="ThrusterRight">
+    <inertial>
+      <origin xyz="0. 0. -0.0096491" rpy="0. 0. 0."/>
+      <mass value="0.12"/>
+      <inertia ixx="0.0001104" ixy="0." ixz="0." iyy="0.0001104" iyz="0." izz="0.000092"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0. -0. -0." rpy="0. 0. 0.0000002"/>
+      <geometry>
+        <mesh filename="meshes/ThrusterRight_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0. -0. -0." rpy="0. 0. 0.0000002"/>
+      <geometry>
+        <mesh filename="meshes/ThrusterRight_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="Torso">
+    <inertial>
+      <origin xyz="0.0808192 0.0003988 -0.0170212" rpy="0. 0. 0."/>
+      <mass value="3.2677"/>
+      <inertia ixx="0.0503117" ixy="0.0004851" ixz="-0.0000162" iyy="0.0206829" iyz="-0.0000604" izz="0.0561961"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. -0. 0."/>
+      <geometry>
+        <mesh filename="meshes/Torso_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. -0. 0."/>
+      <geometry>
+        <mesh filename="meshes/Torso_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="harpy_model"/>
+</robot>
